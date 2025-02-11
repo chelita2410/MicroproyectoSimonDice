@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Prosto+One&display=swap');
+
+.hidden {
+    display: none;
+}
+
+.circulo {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    border: 10px solid rgb(0, 0, 0);
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.532);
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;
+
+}
+
+.circulo button {
+    outline: none;
+    border: solid black 2px;
+    cursor: pointer;
+    width: 200px;
+    height: 200px;
+    position: absolute; 
+}
+
+.botonVerde {
+    background-color: #4bd357;
+    top: 0;
+    left: 0;
+}
+
+.botonVerde:hover {
+    background-color: #45a049;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+.botonRojo {
+    background-color: #f5331b;
+    top: 0;
+    right: 0;
+}
+
+.botonRojo:hover {
+    background-color: #d62c0f;
+}
+
+.botonAmarillo {
+    background-color: #fef632;
+    bottom: 0;
+    left: 0;
+}
+
+.botonAmarillo:hover {
+    background-color: #e0e60f;
+}
+
+.botonAzul {
+    background-color: #009feb;
+    bottom: 0;
+    right: 0;
+}
+
+.botonAzul:hover {
+    background-color: #0081c6;
+}
+
+.center {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#puntaje {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: black;
+    box-shadow: black 0px 0px 10px;
+}
+
+#menu button  { /*Esto aun no esta bien definido, necesito que sea para todos los botones menos los del ciruclo*/
+    font-size: 17px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+    padding: 10px 20px;
+    margin: 3px;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #2e9c15, #2b782e);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+
+body {
+    font-family: 'Prosto One', sans-serif;
+}
+
+
+
+

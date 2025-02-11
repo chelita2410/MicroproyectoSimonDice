@@ -3,29 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simon Dice!</title>
+    <title>Simón Dice</title>
+    <link rel="icon" href="/images/icono-simon-dice.svg" type="">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
 </head>
 
-<body>
-    <div class="container">
-        <h1> Simon Dice!</h1>
+<body class="center">
+    <h1>Simón Dice</h1>
+    <div id="menu">
+        <p>Prepárate para poner a prueba tu memoria 
+        y reflejos en este divertido y desafiante juego.
+        ¡Diviértete y buena suerte!</p>
         <div class="nombreContainer">
             <input type="text" class="nombreUsuario" placeholder="Ingresa tu nombre: " />
-            <boton clase="aceptarNombre">Aceptar</boton>
+            <button class="aceptarNombre">Aceptar</button>
         </div>
-        <h4 class="puntajeActual"> Puntuación: 0</h4>
+        <button onclick="showSection('juego')">Jugar</button>
+        <button onclick="showSection('historial')">Historial de Puntuaciones</button>
+    </div>
+
+    <div id="juego" class="hidden">
+        <div class="circulo">
+            <button class="botonVerde"></button>
+            <button class="botonRojo"></button>
+            <button class="botonAmarillo"></button>
+            <button class="botonAzul"></button>
+            <div id="puntaje" class="center"></div>
+        </div>
+        <div>
+            <div class="ronda">
+            <button class="botonEmpezar">Empezar Juego!</button> 
+        </div>
         <h4 class="mejorPuntaje">Mejor Puntaje: 0</h4>
-        <p class="tablaPuntajes" style="display: none;"></p>
-        <div class="botonesContainer">
-            <div class="botonRojo"></div>
-            <div class="botonAzul"></div>
-            <div class="botonVerde"></div>
-            <div class="botonAmarillo"></div>
+        <button onclick="showSection('menu')">Volver al Menú</button>
         </div>
-        <div class="ronda"></div>
-        <button class="botonEmpezar" style="display: none;">Empezar Juego!</button>
+        
+    </div>
+
+    <div id="historial" class="hidden">
+        <p class="tablaPuntajes" style="display: none;"></p>
+        <button onclick="showSection('menu')">Volver al Menú</button>
     </div>
 </body>
 </html>
