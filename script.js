@@ -24,7 +24,7 @@ function empezarJuego() {
 
 function siguienteNivel() {
     nivel++;
-    document.querySelector('.ronda').textContent = 'Ronda: ${nivel}';
+    document.querySelector('.ronda').textContent = `Ronda: ${nivel}`;
     secuenciaUsuario = [];
     let nuevoColor = obtenerColorAleatorio();
     secuencia.push(nuevoColor);
@@ -48,7 +48,7 @@ function reproducirSecuencia() {
 }    
 
 function activarBoton(color) {
-    const boton = document.querySelector('.boton${capitalize(color)}');
+    const boton = document.querySelector(`.boton${capitalize(color)}`);
     boton.classList.add('activo');
     setTimeout(() => {
         boton.classList.remove('activo'); 
@@ -71,4 +71,23 @@ function manejarEntradaUsuario(color) {
     }
 }
 
+function compararSecuencia() {
+    for (let i = 0; i < secuenciaUsuario.length; i++) {
+        if (secuenciaUsuario[i] !== secuencia[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function perder() {
+    alert(`Perdiste! Llegaste al nivel: ${nivel}`);
+    document.querySelector('.ronda').textContent = 'Ronda: 0';
+}
+
+document.querySelector('.botonEmpezar').addEventListener('click', empezarJuego);
+document.querySelector('.botonVerde').addEventListener('click', () => manejarEntradaUsuario('verde'));
+document.querySelector('.botonRojo').addEventListener('click', () => manejarEntradaUsuario('rojo'));
+document.querySelector('.botonAmarillo').addEventListener('click', () => manejarEntradaUsuario('amarillo'));
+document.querySelector('.botonAzul').addEventListener('click', () => manejarEntradaUsuario('azul'));
 
