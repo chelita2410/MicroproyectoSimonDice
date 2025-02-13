@@ -6,7 +6,7 @@
     <title>Simón Dice</title>
     <link rel="icon" href="/images/icono-simon-dice.svg" type="">
     <link rel="stylesheet" href="styles.css">
-
+    <script src="script.js"></script>
 </head>
 
 <body class="center">
@@ -29,12 +29,12 @@
             <button class="botonRojo"></button>
             <button class="botonAmarillo"></button>
             <button class="botonAzul"></button>
-            <div id="puntaje" class="center">
+            <div class="center">
                 <h4 id="puntaje">0</h4>
-            </div>
+            </div> 
         </div>
 
-        <div class="ronda">
+        <div id="ronda">
             <h4 id="rondaTexto">Ronda: 0</h4>
             <button class="botonEmpezar" onclick="empezarJuego()">Empezar Juego!</button> 
             <h4 class="mejorPuntaje">Mejor Puntaje: 0</h4>
@@ -46,6 +46,5 @@
         <p class="tablaPuntajes" style="display: none;"></p>
         <button onclick="showSection('menu')">Volver al Menú</button>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>

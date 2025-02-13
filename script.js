@@ -8,6 +8,7 @@ function showSection(sectionId) {
 let secuencia = [];
 let secuenciaUsuario = [];
 let nivel = 0;
+let puntaje = 0;
 let sonidos = {
     verde: new Audio('sonidos/verde.mp3'),
     rojo: new Audio('sonidos/rojo.mp3'),
@@ -19,6 +20,8 @@ function empezarJuego() {
     secuencia = [];
     secuenciaUsuario = [];
     nivel = 0;
+    puntaje = 0;
+    actualizarPuntaje(puntaje);
     siguienteNivel();
 }
 
@@ -67,8 +70,38 @@ function manejarEntradaUsuario(color) {
         return;
     }
     if (secuenciaUsuario.length === secuencia.length) {
+        puntaje++
+        actualizarPuntaje(puntaje);
         setTimeout(siguienteNivel, 1000);
     }
 }
 
+function compararSecuencia() {
+    for (let i = 0; i < secuenciaUsuario.length; i++) {
+        if (secuenciaUsuario[i] !== secuencia[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function perder() {
+    alert(`Perdiste! Llegaste al nivel: ${nivel}`);
+    puntaje = 0; 
+    actualizarPuntaje(puntaje);
+    document.querySelector('.ronda').textContent = 'Ronda: 0';
+}
+
+
+function actualizarPuntaje(puntaje) {
+    document.getElementById('puntaje').innerText = puntaje;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+document.querySelector('.botonEmpezar').addEventListener('click', empezarJuego);
+document.querySelector('.botonVerde').addEventListener('click', () => manejarEntradaUsuario('verde'));
+document.querySelector('.botonRojo').addEventListener('click', () => manejarEntradaUsuario('rojo'));
+document.querySelector('.botonAmarillo').addEventListener('click', () => manejarEntradaUsuario('amarillo'));
+document.querySelector('.botonAzul').addEventListener('click', () => manejarEntradaUsuario('azul'));
+});
 
