@@ -17,6 +17,7 @@
 }
 
 .circulo button {
+    z-index: 10;
     outline: none;
     border: solid black 2px;
     cursor: pointer;
@@ -82,8 +83,13 @@
     box-shadow: black 0px 0px 10px;
 }
 
+.activo {
+    filter: brightness(2.5);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 1);
+    /*transition: filter 0,1s, box-shadow 0.1s; */
+}
 #menu button  { /*Esto aun no esta bien definido, necesito que sea para todos los botones menos los del ciruclo*/
-    font-size: 17px;
+     font-size: 17px;
     border: none;
     color: white;
     font-weight: bold;

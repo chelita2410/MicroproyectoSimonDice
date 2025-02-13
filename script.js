@@ -24,7 +24,7 @@ function empezarJuego() {
 
 function siguienteNivel() {
     nivel++;
-    document.querySelector('.ronda').textContent = `Ronda: ${nivel}`;
+    document.getElementById('rondaTexto').textContent = `Ronda: ${nivel}`;
     secuenciaUsuario = [];
     let nuevoColor = obtenerColorAleatorio();
     secuencia.push(nuevoColor);
@@ -85,9 +85,10 @@ function perder() {
     document.querySelector('.ronda').textContent = 'Ronda: 0';
 }
 
+document.addEventListener('DOMContentLoaded', () => {
 document.querySelector('.botonEmpezar').addEventListener('click', empezarJuego);
 document.querySelector('.botonVerde').addEventListener('click', () => manejarEntradaUsuario('verde'));
 document.querySelector('.botonRojo').addEventListener('click', () => manejarEntradaUsuario('rojo'));
 document.querySelector('.botonAmarillo').addEventListener('click', () => manejarEntradaUsuario('amarillo'));
 document.querySelector('.botonAzul').addEventListener('click', () => manejarEntradaUsuario('azul'));
-
+});
