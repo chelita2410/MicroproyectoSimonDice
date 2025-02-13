@@ -87,6 +87,10 @@
     box-shadow: black 0px 0px 10px;
     color: white;
     font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .activo {
