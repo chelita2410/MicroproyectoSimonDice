@@ -37,7 +37,7 @@ function siguienteNivel() {
 function obtenerColorAleatorio() {
     const colores = ['verde', 'rojo', 'amarillo', 'azul'];
     let color = colores[Math.floor(Math.random() * 4)];
-    console.log('devuelvo 1 color ' + color); /* Esto es una prueba para ver qué me devuelve */
+    console.log('devuelvo 1 color ' + color); 
     return color 
 }
 
