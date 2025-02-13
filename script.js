@@ -36,11 +36,13 @@ function siguienteNivel() {
 
 function obtenerColorAleatorio() {
     const colores = ['verde', 'rojo', 'amarillo', 'azul'];
-    return colores[Math.floor(Math.random() * 4)];
+    let color = colores[Math.floor(Math.random() * 4)];
+    console.log('devuelvo 1 color ' + color); /* Esto es una prueba para ver qué me devuelve */
+    return color 
 }
 
 function reproducirSecuencia() {
-    let retraso = 0;
+    let retraso = 0.2;
     secuencia.forEach((color, index) => {
         setTimeout(() =>{
             activarBoton(color);
@@ -86,7 +88,7 @@ function compararSecuencia() {
 }
 
 function perder() {
-    alert(`Perdiste! Llegaste al nivel: ${nivel}`);
+    alert(`Perdiste! Llegaste al nivel: ${nivel} y tu puntaje fue: ${puntaje} puntos`);
     puntaje = 0; 
     actualizarPuntaje(puntaje);
     document.querySelector('.ronda').textContent = 'Ronda: 0';
