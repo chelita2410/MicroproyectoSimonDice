@@ -5,8 +5,10 @@
 }
 
 .circulo {
-    width: 400px;
-    height: 400px;
+    width: 50vw;
+    height: 50vw;
+    max-width: 400px;
+    max-height: 400px;
     border-radius: 50%;
     border: 10px solid rgb(0, 0, 0);
     box-shadow: 0 0 14px rgba(0, 0, 0, 0.532);
@@ -153,7 +155,78 @@ p {
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    main-height: 100vh;
+    padding: 10px;
+    text-align: center;
     font-family: 'Prosto One', sans-serif;
     background-color: #6a4c93;
     color: white;
 }
+
+@media (max-width: 768px) { 
+    .circulo {
+      width: 300px;
+      height: 300px;
+    }
+    
+    .circulo button {
+      width: 150px;
+      height: 150px;
+    }
+  
+    h1 {
+      font-size: 36px;
+    }
+  }
+  
+  @media (max-width: 480px) { 
+    .circulo {
+      width: 200px;
+      height: 200px;
+    }
+    
+    .circulo button {
+      width: 100px;
+      height: 100px;
+    }
+  
+    h1 {
+      font-size: 28px;
+    }
+  
+    #puntaje {
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+    }
+  
+    .nombreUsuario {
+      width: 80%;
+      font-size: 14px;
+    }
+  
+    #menu button, #historial button, #ronda button {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  }
+
+  html {
+    font-size: 16px;
+  }
+  
+  @media (max-width: 768px) {
+    html {
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    html {
+      font-size: 12px;
+    }
+  }
