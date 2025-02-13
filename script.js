@@ -106,4 +106,3 @@ document.querySelector('.botonRojo').addEventListener('click', () => manejarEntr
 document.querySelector('.botonAmarillo').addEventListener('click', () => manejarEntradaUsuario('amarillo'));
 document.querySelector('.botonAzul').addEventListener('click', () => manejarEntradaUsuario('azul'));
 });
-
