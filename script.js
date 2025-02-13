@@ -8,6 +8,7 @@ function showSection(sectionId) {
 let secuencia = [];
 let secuenciaUsuario = [];
 let nivel = 0;
+let puntaje = 0;
 let sonidos = {
     verde: new Audio('sonidos/verde.mp3'),
     rojo: new Audio('sonidos/rojo.mp3'),
@@ -19,6 +20,8 @@ function empezarJuego() {
     secuencia = [];
     secuenciaUsuario = [];
     nivel = 0;
+    puntaje = 0;
+    actualizarPuntaje(puntaje);
     siguienteNivel();
 }
 
@@ -67,6 +70,8 @@ function manejarEntradaUsuario(color) {
         return;
     }
     if (secuenciaUsuario.length === secuencia.length) {
+        puntaje++
+        actualizarPuntaje(puntaje);
         setTimeout(siguienteNivel, 1000);
     }
 }
@@ -82,7 +87,14 @@ function compararSecuencia() {
 
 function perder() {
     alert(`Perdiste! Llegaste al nivel: ${nivel}`);
+    puntaje = 0; 
+    actualizarPuntaje(puntaje);
     document.querySelector('.ronda').textContent = 'Ronda: 0';
+}
+
+
+function actualizarPuntaje(puntaje) {
+    document.getElementById('puntaje').innerText = puntaje;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
