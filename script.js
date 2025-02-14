@@ -106,3 +106,22 @@ document.querySelector('.botonRojo').addEventListener('click', () => manejarEntr
 document.querySelector('.botonAmarillo').addEventListener('click', () => manejarEntradaUsuario('amarillo'));
 document.querySelector('.botonAzul').addEventListener('click', () => manejarEntradaUsuario('azul'));
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('.aceptarNombre').addEventListener('click', obtenerNombreUsuario);
+});
+
+function obtenerNombreUsuario() {
+    const nombreUsuario = document.querySelector('.nombreUsuario').value;
+    localStorage.setItem('Nombre del jugador', nombreUsuario)
+    
+    console.log(localStorage.getItem('Nombre del jugador'));
+
+    const confirmacion = document.getElementById('confirmacionNombre');
+    confirmacion.textContent = 'Nombre guardado exitosamente'
+    confirmacion.style.display = 'block' ;
+
+    setTimeout(() => {
+        confirmacion.style.display = 'none';
+    }, 2000);
+}

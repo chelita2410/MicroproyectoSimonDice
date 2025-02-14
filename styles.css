@@ -185,6 +185,26 @@ body {
     h1 {
       font-size: 36px;
     }
+
+    p{
+      font-size: 16px;
+    }
+
+    #puntaje {
+      width: 50px;
+      height: 50px;
+      font-size: 25px;
+    }
+
+    .nombreUsuario {
+      width: 200px;
+      font-size: 14px;
+    }
+
+    #menu button, #historial button, #ronda button {
+      font-size: 15px;
+      padding: 8px 16px;
+    }
   }
   
   @media (max-width: 480px) { 
@@ -210,27 +230,19 @@ body {
   
     .nombreUsuario {
       width: 80%;
-      font-size: 14px;
+      font-size: 12px;
     }
   
     #menu button, #historial button, #ronda button {
       font-size: 14px;
-      padding: 8px 16px;
+      padding: 8px 14px;
     }
   }
+  
 
-  html {
-    font-size: 16px;
-  }
-  
-  @media (max-width: 768px) {
-    html {
-      font-size: 14px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    html {
-      font-size: 12px;
-    }
-  }
+  #confirmacionNombre {
+    color: rgb(57, 230, 57);
+    font-size: 15px;
+    display: none; 
+    margin-top: 12px;
+}
