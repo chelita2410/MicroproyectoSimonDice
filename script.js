@@ -88,7 +88,9 @@ function compararSecuencia() {
 }
 
 function perder() {
+    const nombreUsuario = localStorage.getItem('Nombre del jugador') || "Jugador desconocido";
     alert(`Perdiste! Llegaste al nivel: ${nivel} y tu puntaje fue: ${puntaje} puntos`);
+    localStorage.setItem(`Puntaje de ${nombreUsuario}`, puntaje);
     puntaje = 0; 
     actualizarPuntaje(puntaje);
     document.querySelector('.ronda').textContent = 'Ronda: 0';
@@ -119,9 +121,38 @@ function obtenerNombreUsuario() {
 
     const confirmacion = document.getElementById('confirmacionNombre');
     confirmacion.textContent = 'Nombre guardado exitosamente'
+    confirmacion.classList.remove('confirmacion-error');
+    confirmacion.classList.add('confirmacion-exito');
     confirmacion.style.display = 'block' ;
+
+    if (nombreUsuario === '') {
+        confirmacion.textContent = 'Por favor ingresa un nombre'
+        confirmacion.classList.remove('confirmacion-exito');
+        confirmacion.classList.add('confirmacion-error');
+        confirmacion.style.display = 'block';
+
+        setTimeout(() => {
+            confirmacion.style.display = 'none';
+        }, 2000);
+        return;
+    }
 
     setTimeout(() => {
         confirmacion.style.display = 'none';
     }, 2000);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('button[onclick="showSection(\'historial\')"]').addEventListener('click', mostrarHistorial);
+});
+
+function mostrarHistorial() {
+    let mensaje = "Historial de puntajes: \n";
+    for (let i = 0; i < localStorage.length; i++) {
+        let clave = localStorage.key(i);
+        if (clave.includes('Puntaje de')) {
+            mensaje += `${clave.replace("Puntje de ", "")}: ${localStorage.getItem(clave)} puntos \n`;
+        }
+    }
+    alert(mensaje || "No hay puntajes guardados");
 }
