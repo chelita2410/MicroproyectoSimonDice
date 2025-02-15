@@ -94,10 +94,11 @@
 }
 
 .activo {
-    filter: brightness(2.5);
+    filter: brightness(3);
     box-shadow: 0 0 40px rgba(255, 255, 255, 1);
     pointer-events: none;
 }
+
 
 #menu button, #historial button, #ronda button { 
     font-size: 17px;
