@@ -18,14 +18,14 @@
         <div class="nombreContainer">
             <input type="text" class="nombreUsuario" placeholder="Ingresa tu nombre: " />
             <button class="aceptarNombre">Aceptar</button>
-            <p id="confirmacionNombre">Nombre guardado exitosamente</p>
+            <p id="confirmacionNombre"></p>
         </div>
-        <button onclick="showSection('juego')">Jugar</button>
+        <button id="botonJugar" onclick="showSection('juego')">Jugar</button>
         <button onclick="showSection('historial')">Historial de Puntuaciones</button>
     </div>
 
     <div id="juego" class="hidden">
-        <div class="circulo">
+        <div id="circulo" class="circulo">
             <button class="botonVerde"></button>
             <button class="botonRojo"></button>
             <button class="botonAmarillo"></button>
@@ -38,13 +38,14 @@
         <div id="ronda">
             <h4 id="rondaTexto">Ronda: 0</h4>
             <button class="botonEmpezar">Empezar Juego!</button> 
-            <h4 class="mejorPuntaje">Mejor Puntaje: 0</h4>
+            <h4 id="mejorPuntaje">Mejor Puntaje: 0</h4>
             <button onclick="showSection('menu')">Volver al Menú</button>
         </div>
     </div>
 
     <div id="historial" class="hidden">
-        <p class="tablaPuntajes" style="display: none;"></p>
+        <h2>Historial de Puntajes</h2>
+        <pre id="historialPuntajes"></pre>
         <button onclick="showSection('menu')">Volver al Menú</button>
     </div>
 </body>

@@ -93,6 +93,7 @@ function perder() {
     localStorage.setItem(`Puntaje de ${nombreUsuario}`, puntaje);
     puntaje = 0; 
     actualizarPuntaje(puntaje);
+    mostrarMejoresPuntaje();
     document.querySelector('.ronda').textContent = 'Ronda: 0';
 }
 
@@ -103,6 +104,7 @@ function actualizarPuntaje(puntaje) {
 
 document.addEventListener('DOMContentLoaded', () => {
 document.querySelector('.botonEmpezar').addEventListener('click', empezarJuego);
+document.getElementById('botonJugar').addEventListener('click', mostrarMejoresPuntaje);
 document.querySelector('.botonVerde').addEventListener('click', () => manejarEntradaUsuario('verde'));
 document.querySelector('.botonRojo').addEventListener('click', () => manejarEntradaUsuario('rojo'));
 document.querySelector('.botonAmarillo').addEventListener('click', () => manejarEntradaUsuario('amarillo'));
@@ -126,7 +128,7 @@ function obtenerNombreUsuario() {
     confirmacion.style.display = 'block' ;
 
     if (nombreUsuario === '') {
-        confirmacion.textContent = 'Por favor ingresa un nombre'
+        confirmacion.textContent = 'Por favor, ingresa un nombre'
         confirmacion.classList.remove('confirmacion-exito');
         confirmacion.classList.add('confirmacion-error');
         confirmacion.style.display = 'block';
@@ -147,12 +149,26 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function mostrarHistorial() {
-    let mensaje = "Historial de puntajes: \n";
+    let mensaje = "";
     for (let i = 0; i < localStorage.length; i++) {
         let clave = localStorage.key(i);
         if (clave.includes('Puntaje de')) {
             mensaje += `${clave.replace("Puntje de ", "")}: ${localStorage.getItem(clave)} puntos \n`;
         }
     }
-    alert(mensaje || "No hay puntajes guardados");
+    document.getElementById('historialPuntajes').textContent = mensaje || "No hay puntajes guardados";
+}
+
+function mostrarMejoresPuntaje() {
+    let mejorPuntaje = 0;
+    for (let i = 0; i < localStorage.length; i++) {
+        let clave = localStorage.key(i);
+        if (clave.includes('Puntaje de')) {
+            let puntaje = parseInt(localStorage.getItem(clave));
+            if (puntaje > mejorPuntaje) {
+                mejorPuntaje = puntaje;
+            }
+        }
+    }
+    document.getElementById('mejorPuntaje').textContent = `Mejor Puntaje: ${mejorPuntaje}`;
 }
