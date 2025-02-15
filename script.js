@@ -101,7 +101,6 @@ function perder() {
     actualizarRonda(nivel);
     actualizarPuntaje(puntaje);
     mostrarMejoresPuntaje();
-    document.querySelector('.ronda').textContent = 'Ronda: 0';
 }
 
 
