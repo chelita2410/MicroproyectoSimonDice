@@ -21,13 +21,18 @@ function empezarJuego() {
     secuenciaUsuario = [];
     nivel = 0;
     puntaje = 0;
+    actualizarRonda(nivel);
     actualizarPuntaje(puntaje);
     siguienteNivel();
 }
 
+function actualizarRonda(nivel) {
+    document.getElementById('rondaTexto').textContent = `Ronda: ${nivel}`;
+}
+
 function siguienteNivel() {
     nivel++;
-    document.getElementById('rondaTexto').textContent = `Ronda: ${nivel}`;
+    actualizarRonda(nivel);
     secuenciaUsuario = [];
     let nuevoColor = obtenerColorAleatorio();
     secuencia.push(nuevoColor);
@@ -92,6 +97,8 @@ function perder() {
     alert(`Perdiste! Llegaste al nivel: ${nivel} y tu puntaje fue: ${puntaje} puntos`);
     localStorage.setItem(`Puntaje de ${nombreUsuario}`, puntaje);
     puntaje = 0; 
+    nivel = 0;
+    actualizarRonda(nivel);
     actualizarPuntaje(puntaje);
     mostrarMejoresPuntaje();
     document.querySelector('.ronda').textContent = 'Ronda: 0';
